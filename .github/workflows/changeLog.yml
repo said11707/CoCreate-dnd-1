@@ -15,21 +15,7 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v1
-        with:
-          node-version: "12.x"
-
-      - name: Install Dependencies
-        run: yarn install
-
       - name: Semantic Release
         uses: cycjimmy/semantic-release-action@v2
-        with:
-          extra_plugins: |
-            @semantic-release/changelog
-            @semantic-release/git
-          branch: master
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
